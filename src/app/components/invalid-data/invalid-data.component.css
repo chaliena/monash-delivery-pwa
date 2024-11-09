@@ -1,0 +1,35 @@
+.error-contents {
+    color: white;
+    background-color: #006DAE;
+}
+
+.error-contents h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.btn-tertiary {
+    height: 3rem;
+    background-color: #006DAE;
+    border-color: #ffffff;
+    border-width: 1px;
+    color: #ffffff;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-tertiary:hover {
+    background-color:#ffffff;
+    border-color: #ffffff;
+    border-width: 1px;
+    color: #006DAE;
+}
+
+h1, h3 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+main-contents, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}

@@ -1,0 +1,57 @@
+<section class="main-section-table">
+  <main class="container my-5">
+    <h1 class="text-center mb-4">List of Packages</h1>
+    <div class="table-responsive">
+      <table id="packagesTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Package ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Destination</th>
+            <th>Driver ID</th>
+            <th>Weight</th>
+            <th>Is Allocated?</th>
+            <th>Date Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let package of packages; let i = index">
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ package._id }}</td>
+              <td>{{ package.id }}</td>
+              <td>{{ package.title }}</td>
+              <td>{{ package.description }}</td>
+              <td>{{ package.destination }}</td>
+              <td>{{ package.driverId }}</td>
+              <td>{{ package.weight | kgToG }}</td>
+              <td>{{ package.isAllocated ? 'Yes' : 'No' }}</td>
+              <td>{{ package.createdAt | date: 'short' }}</td>
+              <td>
+                <button class="btn btn-primary" (click)="showDriverDetails(package)">
+                  {{ selectedPackage === package ? 'Hide Driver' : 'View Driver' }}
+                </button>
+              </td>
+            </tr>
+            <tr *ngIf="selectedPackage === package && selectedDriver">
+              <td colspan="11">
+                <div class="driver-details">
+                  <h4>Driver Details</h4>
+                  <p><strong>Name:</strong> {{ selectedDriver.name }}</p>
+                  <p><strong>ID:</strong> {{ selectedDriver.id }}</p>
+                  <p><strong>Department:</strong> {{ selectedDriver.department }}</p>
+                  <p><strong>License Number:</strong> {{ selectedDriver.licenceNumber }}</p>
+                  <p><strong>Active:</strong> {{ selectedDriver.isActive ? 'Yes' : 'No' }}</p>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</section>

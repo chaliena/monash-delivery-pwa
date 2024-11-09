@@ -1,0 +1,65 @@
+<section id="crud-stats" class="container text-center my-5 py-5">
+    <h1 class="mb-4">CRUD Operation Statistics</h1>
+    <p class="mb-5">Get a quick glance at the key metrics for CRUD operations:</p>
+    <div class="row">
+        <!-- Create Operation -->
+        <div class="col-md-3 mb-4">
+            <div class="card operation-count shadow-sm">
+                <div class="card-body text-center">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <i class="operation-icon fas fa-plus fa-3x mb-3"></i>
+                        <div>
+                            <h5 class="card-title mb-0">Create</h5>
+                            <h1 id="createCount" class="card-text mt-3 font-weight-bold">{{ statistics.create || 0 }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Retrieve Operation -->
+        <div class="col-md-3 mb-4">
+            <div class="card operation-count shadow-sm">
+                <div class="card-body text-center">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <i class="operation-icon fas fa-search fa-3x mb-3"></i>
+                        <div>
+                            <h5 class="card-title mb-0">Retrieve</h5>
+                            <h1 id="retrieveCount" class="card-text mt-3 font-weight-bold">{{ statistics.retrieve || 0 }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Operation -->
+        <div class="col-md-3 mb-4">
+            <div class="card operation-count shadow-sm">
+                <div class="card-body text-center">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <i class="operation-icon fas fa-edit fa-3x mb-3"></i>
+                        <div>
+                            <h5 class="card-title mb-0">Update</h5>
+                            <h1 id="updateCount" class="card-text mt-3 font-weight-bold">{{ statistics.update || 0 }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Operation -->
+        <div class="col-md-3 mb-4">
+            <div class="card operation-count shadow-sm">
+                <div class="card-body text-center">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                        <i class="operation-icon fas fa-trash fa-3x mb-3"></i>
+                        <div>
+                            <h5 class="card-title mb-0">Delete</h5>
+                            <h1 id="deleteCount" class="card-text mt-3 font-weight-bold">{{ statistics.delete || 0 }}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

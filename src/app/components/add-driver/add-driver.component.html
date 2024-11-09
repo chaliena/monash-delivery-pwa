@@ -1,0 +1,70 @@
+<section class="main-section">
+    <main class="container">
+        <h1 class="text-center mb-4">Add Driver</h1>
+        <div id="form-container">
+            <form  #driverForm="ngForm" class="px-5" method="post">
+                <div class="form-group">
+                    <label for="driver_name">Driver Name</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="driver_name" 
+                        name="driver_name" 
+                        [(ngModel)]="driver.name" 
+                        required 
+                        placeholder="Enter driver name" 
+                        aria-label="Driver Name"
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="driver_department">Department</label>
+                    <select 
+                        class="form-control" 
+                        id="driver_department" 
+                        name="driver_department" 
+                        [(ngModel)]="driver.department" 
+                        required 
+                        aria-label="Driver Department"
+                    >
+                        <option value="" disabled selected>Select department</option>
+                        <option value="food">Food</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="electronic">Electronic</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="driver_licence">License Number</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="driver_licence" 
+                        name="driver_licence" 
+                        [(ngModel)]="driver.licenceNumber" 
+                        required 
+                        placeholder="Enter license number" 
+                        aria-label="License Number"
+                    >
+                </div>
+                <div class="form-group">
+                    <div class="d-flex align-items-center">
+                        <label for="driver_isActive" class="mb-0 mr-2">Active</label>
+                        <div class="custom-control custom-switch">
+                            <input 
+                                type="checkbox" 
+                                id="driver_isActive" 
+                                name="driver_isActive" 
+                                [(ngModel)]="driver.isActive" 
+                                class="custom-control-input" 
+                                aria-label="Is Active"
+                            >
+                            <label class="custom-control-label" for="driver_isActive"></label>
+                        </div>
+                    </div>
+                </div>                    
+                <div class="text-center mt-3">
+                    <button type="submit" class="btn btn-primary btn-block" id="add-button" (click)="addDriver(driverForm)">Add Driver</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>

@@ -1,0 +1,82 @@
+<section class="main-section-table">
+  <main class="container my-5">
+    <h1 class="text-center mb-4">List of Drivers</h1>
+    <div class="table-responsive">
+      <table id="driversTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Driver ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Licence</th>
+            <th>Is Active?</th>
+            <th>Date Created</th>
+            <th>Actions</th> <!-- Add a new column for the button -->
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let driver of drivers; let i = index">
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ driver._id }}</td>
+              <td>{{ driver.id }}</td>
+              <td>{{ driver.name | uppercase }}</td>
+              <td>{{ driver.department | departmentName }}</td>
+              <td>{{ driver.licenceNumber }}</td>
+              <td>{{ driver.isActive ? 'Yes' : 'No' }}</td>
+              <td>{{ driver.createdAt | date: 'short' }}</td>
+              <!-- Add button to view packages -->
+              <td>
+                <button class="btn btn-primary" (click)="togglePackages(driver)">{{ selectedDriver === driver ? 'Hide Packages' : 'View Packages' }}</button>
+              </td>
+            </tr>
+
+            <!-- Row to display packages when selectedDriver matches the current driver -->
+            <ng-container *ngIf="selectedDriver && selectedDriver._id === driver._id">
+              <h4 class="mt-2">Assigned Packages</h4>
+              <tr>
+                <td colspan="9">
+                  <div *ngIf="driverPackages.length > 0">
+                    <table class="table table-sm">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>ID</th>
+                          <th>Package ID</th>
+                          <th>Title</th>
+                          <th>Description</th>
+                          <th>Destination</th>
+                          <th>Weight</th>
+                          <th>Is Allocated?</th>
+                          <th>Date Created</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let package of driverPackages; let i = index">
+                          <td>{{ i + 1 }}</td>
+                          <td>{{ package._id }}</td>
+                          <td>{{ package.id }}</td>
+                          <td>{{ package.title }}</td>
+                          <td>{{ package.description }}</td>
+                          <td>{{ package.destination }}</td>
+                          <td>{{ package.weight | kgToG }}</td>
+                          <td>{{ package.isAllocated ? 'Yes' : 'No' }}</td>
+                          <td>{{ package.createdAt | date: 'short' }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div *ngIf="driverPackages.length === 0">
+                    No Packages Found
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</section>

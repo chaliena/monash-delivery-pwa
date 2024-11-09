@@ -1,0 +1,43 @@
+<div id="alertContainer" class="alert-container">
+    <div *ngIf="confirmationMessage" class="mt-4">
+      <div class="alert alert-success" role="alert">
+        Package has been successfully deleted!
+      </div>
+    </div>
+  
+    <div *ngIf="errorMessage" class="mt-4">
+      <div class="alert alert-danger" role="alert">
+        An error occurred while trying to delete the package. Please try again.
+      </div>
+    </div>
+</div>
+  
+<section class="main-section">
+    <main class="container my-5 py-5">
+      <h1 class="text-center mb-4">Delete Package</h1>
+  
+      <div id="form-container">
+        <form #deletePackageForm="ngForm" (ngSubmit)="deletePackage(deletePackageForm)">
+          <div class="form-group">
+            <label for="packageSelect">Select Package</label>
+            <select
+              class="form-control"
+              id="packageSelect"
+              name="packageSelect"
+              [(ngModel)]="selectedPackageId"
+              required
+            >
+              <option value="" disabled>Select a package</option>
+              <option *ngFor="let package of packages" [value]="package._id">
+                {{ package.title }} - {{ package.weight }} - {{ package.destination }}
+              </option>
+            </select>
+          </div>
+  
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-danger btn-block">Delete Package</button>
+          </div>
+        </form>
+      </div>
+    </main>
+</section>

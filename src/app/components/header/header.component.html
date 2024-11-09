@@ -1,0 +1,50 @@
+<header>
+    <nav class="navbar navbar-expand-lg py-3 px-5">
+      <a class="navbar-brand ml-3" href="/32510799/Chaliena/api/v1">
+        <img src="/logo.png" alt="Logo" class="logo">
+      </a>
+      <button class="navbar-toggler" type="button" id="sideMenuToggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/32510799/Chaliena/api/v1/stats">STATISTICS</a></li>
+  
+          <!-- Drivers Dropdown -->
+          <li class="nav-item dropdown ml-3">
+            <a class="nav-link dropdown-toggle" href="#" id="driversDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              DRIVERS
+            </a>
+            <div class="dropdown-menu" aria-labelledby="driversDropdown">
+              <a class="dropdown-item" routerLink="/32510799/Chaliena/api/v1/drivers">All Drivers</a>
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/drivers/add">Add Driver</a>
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/drivers/delete">Delete Driver</a>
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/drivers/update">Update Driver</a>
+            </div>
+          </li>
+  
+          <!-- Packages Dropdown -->
+          <li class="nav-item dropdown ml-3">
+            <a class="nav-link dropdown-toggle" href="#" id="packagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              PACKAGES
+            </a>
+            <div class="dropdown-menu" aria-labelledby="packagesDropdown">
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/packages">All Packages</a>
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/packages/add">Add Package</a>
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/packages/delete">Delete Package</a>
+              <a class="dropdown-item" href="/32510799/Chaliena/api/v1/packages/update">Update Package</a>
+            </div>
+          </li>
+  
+          <!-- Conditionally show Login or Logout buttons -->
+          <li class="nav-item ml-3" *ngIf="!authService.isAuthenticated()">
+            <a class="btn login-btn nav-link px-3" routerLink="32510799/Chaliena/api/v1/login">LOGIN</a>
+          </li>
+          <li class="nav-item ml-3" *ngIf="authService.isAuthenticated()">
+            <a class="btn logout-btn nav-link px-3" (click)="onLogout()">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
